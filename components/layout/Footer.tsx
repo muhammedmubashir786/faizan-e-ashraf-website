@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { SITE, SOCIAL, NAV_LINKS } from "@/lib/constants";
 
@@ -33,12 +34,15 @@ export default function Footer() {
     <footer className="bg-primary-dark text-white">
       <div className="mx-auto max-w-6xl px-4 py-12 md:px-6">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-primary-dark font-bold">
-                FA
-              </div>
+              <Image
+                src="/images/logo/logo.png"
+                alt={SITE.name}
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full object-cover"
+              />
               <span className="font-semibold">{SITE.name}</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed">
@@ -78,7 +82,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="font-semibold mb-4 text-accent-light">
               Quick Links
@@ -97,7 +100,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="font-semibold mb-4 text-accent-light">
               Contact Us

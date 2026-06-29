@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
@@ -7,7 +8,6 @@ import MobileNav from "./MobileNav";
 export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-surface-elevated/95 backdrop-blur-sm">
-      {/* Top utility bar — visible only on larger screens */}
       <div className="hidden md:flex items-center justify-end gap-6 px-6 py-1.5 text-sm text-text-muted bg-primary text-white">
         <a
           href={`tel:${SITE.phone}`}
@@ -24,12 +24,16 @@ export default function Header() {
         </a>
       </div>
 
-      {/* Main header row */}
       <div className="flex items-center justify-between px-4 py-3 md:px-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white font-bold text-lg">
-            FA
-          </div>
+          <Image
+            src="/images/logo/logo.png"
+            alt={SITE.name}
+            width={44}
+            height={44}
+            className="h-11 w-11 rounded-full object-cover"
+            priority
+          />
           <div className="leading-tight">
             <p className="font-semibold text-primary text-sm md:text-base">
               Darul Uloom
@@ -40,7 +44,6 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <Link

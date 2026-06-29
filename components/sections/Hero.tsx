@@ -1,12 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/constants";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-primary-dark text-white">
-      {/* Decorative background pattern */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--accent)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/campus.jpg"
+          alt="Darul Uloom Faizan-E-Ashraf campus"
+          fill
+          priority
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-primary-dark/85 to-primary-dark" />
+      </div>
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-32 text-center">
         <p className="text-accent-light font-medium text-sm md:text-base mb-3 tracking-wide uppercase">
