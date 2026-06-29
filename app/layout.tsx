@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -29,6 +29,12 @@ export const metadata: Metadata = {
     "Hifzul Quran",
     "madrasa Rajasthan",
   ],
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
