@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, GraduationCap, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { INSTITUTIONS } from "@/lib/constants";
 
 type Props = {
@@ -57,8 +58,14 @@ export default async function InstitutionDetailPage({ params }: Props) {
 
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="mx-auto max-w-4xl">
-          <div className="h-56 md:h-72 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8">
-            <GraduationCap size={72} strokeWidth={1.5} />
+          <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-8">
+            <Image
+              src={institution.image}
+              alt={institution.name}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           <p className="text-text-muted text-base md:text-lg leading-relaxed mb-8">

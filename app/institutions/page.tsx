@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, GraduationCap } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { INSTITUTIONS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -29,8 +30,13 @@ export default function InstitutionsPage() {
                 key={inst.slug}
                 className="group rounded-2xl border border-border bg-surface-elevated overflow-hidden hover:shadow-xl transition-all"
               >
-                <div className="h-44 bg-primary/10 flex items-center justify-center text-primary">
-                  <GraduationCap size={52} strokeWidth={1.5} />
+                <div className="relative h-44 w-full">
+                  <Image
+                    src={inst.image}
+                    alt={inst.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="p-6">
                   <h2 className="font-semibold text-lg text-foreground mb-2">
