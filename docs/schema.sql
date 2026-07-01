@@ -187,7 +187,9 @@ create trigger trg_exam_results_updated_at before update on exam_results for eac
 create index idx_exam_results_student on exam_results(student_id);
 create index idx_exam_results_published on exam_results(published);
 
-create view published_results as
+create view published_results
+  with (security_invoker = true)
+as
 select er.id, s.roll_number, s.admission_number, s.full_name, s.class_name,
   er.exam_name, er.exam_year, er.subjects, er.total_marks, er.obtained_marks,
   er.percentage, er.grade, er.result_status
@@ -195,7 +197,9 @@ from exam_results er
 join students s on s.id = er.student_id
 where er.published = true;
 
-create view available_classes as
+create view available_classes
+  with (security_invoker = true)
+as
 select distinct class_name from students order by class_name;
 
 alter table profiles enable row level security;
